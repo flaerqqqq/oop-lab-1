@@ -33,9 +33,13 @@ public class Library {
         libraryBooks.stream().filter(b -> b.getIsbn().equals(isbn))
                 .findAny()
                 .ifPresentOrElse(b -> {
-                    Optional.ofNullable(book.getTitle()).ifPresent(b::setTitle);
-                    Optional.ofNullable(book.getAuthor()).ifPresent(b::setAuthor);
-                    Optional.ofNullable(book.getPublicationDate()).ifPresent(b::setPublicationDate);
+                    if (b.getTitle() != null || !b.getTitle().isEmpty()) {
+                        b.setTitle(book.getTitle());
+                    } else if (b.getAuthor() != null || !b.getAuthor().isEmpty()) {
+                        b.setAuthor(book.getAuthor());
+                    } else if (b.getPublicationDate() != null || !b.getPublicationDate().isEmpty()) {
+                        b.setPublicationDate(book.getPublicationDate());
+                    }
                 }, () -> {
                     throw new BookNotFoundException("Book with such ISBN is not found: %s".formatted("isbn"));
                 }
