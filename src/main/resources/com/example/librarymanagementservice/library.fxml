@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementservice.LibraryController">
-    <AnchorPane fx:id="mainMenuPane" prefHeight="400" prefWidth="600">
+    <AnchorPane fx:id="mainMenuPane" prefHeight="400" prefWidth="800">
         <VBox spacing="20" alignment="CENTER" layoutX="100" layoutY="50">
             <Text text="Library Management System" />
             <Button text="Add Book" onAction="#showAddBookScene"/>
@@ -17,8 +17,8 @@
         </VBox>
     </AnchorPane>
 
-    <AnchorPane fx:id="addBookPane" prefHeight="400" prefWidth="600" visible="false">
-        <VBox spacing="10" alignment="CENTER" layoutX="50" layoutY="50">
+    <AnchorPane fx:id="addBookPane" prefHeight="400" prefWidth="800" visible="false">
+        <VBox spacing="5" alignment="CENTER" layoutX="50" layoutY="50">
             <Text text="Add Book" />
             <HBox spacing="10">
                 <TextField fx:id="isbnField" promptText="ISBN" />
@@ -31,7 +31,7 @@
         </VBox>
     </AnchorPane>
 
-    <AnchorPane fx:id="findBooksMenuPane" prefHeight="400" prefWidth="600" visible="false">
+    <AnchorPane fx:id="findBooksMenuPane" prefHeight="400" prefWidth="700" visible="false">
         <VBox spacing="20" alignment="CENTER" layoutX="50" layoutY="50">
             <Text text="Find Books" />
             <Button text="Find by Author" onAction="#showFindBookByAuthorNameScene"/>
@@ -42,11 +42,11 @@
         </VBox>
     </AnchorPane>
 
-    <AnchorPane fx:id="findBookByAuthorNamePane" prefHeight="400" prefWidth="600" visible="false">
+    <AnchorPane fx:id="findBookByAuthorNamePane" prefHeight="400" prefWidth="700" visible="false">
         <VBox spacing="10" alignment="CENTER" layoutX="50" layoutY="50">
             <Text text="Find Books by Author" />
             <TextField fx:id="findAuthorNameField" promptText="Author Name" />
-            <TableView fx:id="booksByAuthorTableView" prefHeight="200" prefWidth="600">
+            <TableView fx:id="booksByAuthorTableView" prefHeight="200" prefWidth="700">
                 <columns>
                     <TableColumn fx:id="isbnColumnAuthor" text="ISBN" />
                     <TableColumn fx:id="titleColumnAuthor" text="Title" />
@@ -59,11 +59,11 @@
         </VBox>
     </AnchorPane>
 
-    <AnchorPane fx:id="findBookByYearPane" prefHeight="400" prefWidth="600" visible="false">
+    <AnchorPane fx:id="findBookByYearPane" prefHeight="400" prefWidth="700" visible="false">
         <VBox spacing="10" alignment="CENTER" layoutX="50" layoutY="50">
             <Text text="Find Books by Year" />
             <TextField fx:id="findYearField" promptText="Year" />
-            <TableView fx:id="booksByYearTableView" prefHeight="200" prefWidth="600">
+            <TableView fx:id="booksByYearTableView" prefHeight="200" prefWidth="700">
                 <columns>
                     <TableColumn fx:id="isbnColumnYear" text="ISBN" />
                     <TableColumn fx:id="titleColumnYear" text="Title" />
@@ -76,10 +76,10 @@
         </VBox>
     </AnchorPane>
 
-    <AnchorPane fx:id="findAllBooksPane" prefHeight="400" prefWidth="600" visible="false">
+    <AnchorPane fx:id="findAllBooksPane" prefHeight="400" prefWidth="700" visible="false">
         <VBox spacing="10" alignment="CENTER" layoutX="50" layoutY="50">
             <Text text="All Books" />
-            <TableView fx:id="booksTableView" prefHeight="200" prefWidth="600">
+            <TableView fx:id="booksTableView" prefHeight="200" prefWidth="700">
                 <columns>
                     <TableColumn fx:id="isbnColumn" text="ISBN" />
                     <TableColumn fx:id="titleColumn" text="Title" />
@@ -92,7 +92,7 @@
         </VBox>
     </AnchorPane>
 
-    <AnchorPane fx:id="findBookByTitlePane" prefHeight="400" prefWidth="600" visible="false">
+    <AnchorPane fx:id="findBookByTitlePane" prefHeight="400" prefWidth="700" visible="false">
         <VBox spacing="10" alignment="CENTER" layoutX="50" layoutY="50">
             <Text text="Find Book by Title" />
             <TextField fx:id="findTitleField" promptText="Title" />
@@ -101,8 +101,8 @@
         </VBox>
     </AnchorPane>
 
-    <AnchorPane fx:id="updateBookPane" prefHeight="400" prefWidth="600" visible="false">
-        <VBox spacing="10" alignment="CENTER" layoutX="50" layoutY="50">
+    <AnchorPane fx:id="updateBookPane" prefHeight="400" prefWidth="700" visible="false">
+        <VBox spacing="5" alignment="CENTER" layoutX="50" layoutY="50">
             <Text text="Update Book" />
             <HBox spacing="10">
                 <TextField fx:id="updateISBNField" promptText="ISBN" />
@@ -115,7 +115,7 @@
         </VBox>
     </AnchorPane>
 
-    <AnchorPane fx:id="deleteBookPane" prefHeight="400" prefWidth="600" visible="false">
+    <AnchorPane fx:id="deleteBookPane" prefHeight="400" prefWidth="700" visible="false">
         <VBox spacing="10" alignment="CENTER" layoutX="50" layoutY="50">
             <Text text="Delete Book" />
             <TextField fx:id="deleteIsbnField" promptText="ISBN to Delete" />
