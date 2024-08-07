@@ -5,10 +5,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.control.DatePicker?>
 
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementservice.LibraryController">
-    <!-- Main Menu Pane -->
     <AnchorPane fx:id="mainMenuPane" prefHeight="400" prefWidth="600">
         <VBox spacing="20" alignment="CENTER" layoutX="100" layoutY="50">
             <Text text="Library Management System" />
@@ -19,7 +17,6 @@
         </VBox>
     </AnchorPane>
 
-    <!-- Add Book Pane -->
     <AnchorPane fx:id="addBookPane" prefHeight="400" prefWidth="600" visible="false">
         <VBox spacing="10" alignment="CENTER" layoutX="50" layoutY="50">
             <Text text="Add Book" />
@@ -34,7 +31,6 @@
         </VBox>
     </AnchorPane>
 
-    <!-- Find Books Menu Pane -->
     <AnchorPane fx:id="findBooksMenuPane" prefHeight="400" prefWidth="600" visible="false">
         <VBox spacing="20" alignment="CENTER" layoutX="50" layoutY="50">
             <Text text="Find Books" />
@@ -46,7 +42,6 @@
         </VBox>
     </AnchorPane>
 
-    <!-- Find Book by Author Name Pane -->
     <AnchorPane fx:id="findBookByAuthorNamePane" prefHeight="400" prefWidth="600" visible="false">
         <VBox spacing="10" alignment="CENTER" layoutX="50" layoutY="50">
             <Text text="Find Books by Author" />
@@ -64,7 +59,6 @@
         </VBox>
     </AnchorPane>
 
-    <!-- Find Book by Year Pane -->
     <AnchorPane fx:id="findBookByYearPane" prefHeight="400" prefWidth="600" visible="false">
         <VBox spacing="10" alignment="CENTER" layoutX="50" layoutY="50">
             <Text text="Find Books by Year" />
@@ -82,7 +76,6 @@
         </VBox>
     </AnchorPane>
 
-    <!-- Find All Books Pane -->
     <AnchorPane fx:id="findAllBooksPane" prefHeight="400" prefWidth="600" visible="false">
         <VBox spacing="10" alignment="CENTER" layoutX="50" layoutY="50">
             <Text text="All Books" />
@@ -99,7 +92,6 @@
         </VBox>
     </AnchorPane>
 
-    <!-- Find Book by Title Pane -->
     <AnchorPane fx:id="findBookByTitlePane" prefHeight="400" prefWidth="600" visible="false">
         <VBox spacing="10" alignment="CENTER" layoutX="50" layoutY="50">
             <Text text="Find Book by Title" />
@@ -109,7 +101,6 @@
         </VBox>
     </AnchorPane>
 
-    <!-- Update Book Pane -->
     <AnchorPane fx:id="updateBookPane" prefHeight="400" prefWidth="600" visible="false">
         <VBox spacing="10" alignment="CENTER" layoutX="50" layoutY="50">
             <Text text="Update Book" />
@@ -124,7 +115,6 @@
         </VBox>
     </AnchorPane>
 
-    <!-- Delete Book Pane -->
     <AnchorPane fx:id="deleteBookPane" prefHeight="400" prefWidth="600" visible="false">
         <VBox spacing="10" alignment="CENTER" layoutX="50" layoutY="50">
             <Text text="Delete Book" />
