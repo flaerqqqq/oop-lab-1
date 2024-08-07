@@ -20,7 +20,11 @@ public class Library {
     }
 
     public void deleteBook(String isbn) {
-        Book bookToBeDeleted = libraryBooks.stream().filter(book -> book.getIsbn().equals(isbn)).findAny().orElseThrow(() -> new BookNotFoundException("Book with such isbn is not found: %s".formatted(isbn)));
+        Book bookToBeDeleted = libraryBooks.stream()
+                .filter(book -> book.getIsbn().equals(isbn))
+                .findAny()
+                .orElseThrow(() ->
+                        new BookNotFoundException("Book with such isbn is not found: %s".formatted(isbn)));
 
         libraryBooks.remove(bookToBeDeleted);
     }
@@ -30,8 +34,8 @@ public class Library {
                 .findAny()
                 .ifPresentOrElse(b -> {
                     Optional.ofNullable(book.getTitle()).ifPresent(b::setTitle);
-                    Optional.ofNullable(book.getAuthorName()).ifPresent(b::setAuthorName);
-                    Optional.ofNullable(book.getPublishedDate()).ifPresent(b::setPublishedDate);
+                    Optional.ofNullable(book.getAuthor()).ifPresent(b::setAuthor);
+                    Optional.ofNullable(book.getPublicationDate()).ifPresent(b::setPublicationDate);
                 }, () -> {
                     throw new BookNotFoundException("Book with such ISBN is not found: %s".formatted("isbn"));
                 }
@@ -40,13 +44,21 @@ public class Library {
 
     public List<Book> findByAuthorName(String authorName) {
         return libraryBooks.stream()
-                .filter(book -> book.getAuthorName().equals(authorName))
+                .filter(book -> book.getAuthor().equals(authorName))
                 .toList();
     }
 
-    public List<Book> findByTitle(String title) {
+    public Book findByTitle(String title) {
         return libraryBooks.stream()
                 .filter(book -> book.getTitle().equals(title))
+                .findFirst()
+                .orElseThrow(() ->
+                        new BookNotFoundException("Book with such ISBN is not found: %s".formatted("isbn")));
+    }
+
+    public List<Book> findByPublicationDate(String publicationDate) {
+        return libraryBooks.stream()
+                .filter(book -> book.getPublicationDate().equals(publicationDate))
                 .toList();
     }
 
