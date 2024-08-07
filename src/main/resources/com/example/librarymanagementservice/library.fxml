@@ -5,6 +5,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.control.DatePicker?>
 
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementservice.LibraryController">
     <!-- Main Menu Pane -->
@@ -13,6 +14,8 @@
             <Text text="Library Management System" />
             <Button text="Add Book" onAction="#showAddBookScene"/>
             <Button text="Find Books" onAction="#showFindBooksMenu"/>
+            <Button text="Update Book" onAction="#showUpdateBookScene"/>
+            <Button text="Delete Book" onAction="#showDeleteBookScene"/>
         </VBox>
     </AnchorPane>
 
@@ -102,6 +105,31 @@
             <Text text="Find Book by Title" />
             <TextField fx:id="findTitleField" promptText="Title" />
             <Button text="Find Book" onAction="#findBookByTitle"/>
+            <Button text="Back to Menu" onAction="#showMainMenu"/>
+        </VBox>
+    </AnchorPane>
+
+    <!-- Update Book Pane -->
+    <AnchorPane fx:id="updateBookPane" prefHeight="400" prefWidth="600" visible="false">
+        <VBox spacing="10" alignment="CENTER" layoutX="50" layoutY="50">
+            <Text text="Update Book" />
+            <HBox spacing="10">
+                <TextField fx:id="updateISBNField" promptText="ISBN" />
+                <TextField fx:id="updateTitleField" promptText="Title" />
+                <TextField fx:id="updateAuthorNameField" promptText="Author Name" />
+                <DatePicker fx:id="updatePublicationDateField" promptText="Publication Date" />
+            </HBox>
+            <Button text="Update Book" onAction="#updateBook"/>
+            <Button text="Back to Menu" onAction="#showMainMenu"/>
+        </VBox>
+    </AnchorPane>
+
+    <!-- Delete Book Pane -->
+    <AnchorPane fx:id="deleteBookPane" prefHeight="400" prefWidth="600" visible="false">
+        <VBox spacing="10" alignment="CENTER" layoutX="50" layoutY="50">
+            <Text text="Delete Book" />
+            <TextField fx:id="deleteIsbnField" promptText="ISBN to Delete" />
+            <Button text="Delete Book" onAction="#deleteBook"/>
             <Button text="Back to Menu" onAction="#showMainMenu"/>
         </VBox>
     </AnchorPane>
