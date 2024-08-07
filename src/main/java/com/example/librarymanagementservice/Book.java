@@ -1,6 +1,8 @@
-package com.example.librarymanagementservice.model;
+package com.example.librarymanagementservice;
 
 import lombok.*;
+
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -8,5 +10,11 @@ import lombok.*;
 @Builder
 public class Book {
 
-    
+    private String isbn;
+
+    private String title;
+
+    private String authorName;
+
+    private String publishedDate;
 }
