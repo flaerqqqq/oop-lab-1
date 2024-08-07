@@ -1,5 +1,6 @@
 package com.example.librarymanagementservice;
 
+import com.example.librarymanagementservice.exceptions.GlobalExceptionHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,9 +12,11 @@ public class LibraryApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("library.fxml"));
+        Thread.setDefaultUncaughtExceptionHandler(new GlobalExceptionHandler());
         primaryStage.setTitle("Library Management System");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+
     }
 
     public static void main(String[] args) {
