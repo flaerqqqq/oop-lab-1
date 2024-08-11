@@ -3,13 +3,16 @@ package com.example.librarymanagementservice;
 import com.example.librarymanagementservice.exceptions.BookAlreadyExistsException;
 import com.example.librarymanagementservice.exceptions.BookNotFoundException;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class Library {
 
-    private static List<Book> libraryBooks = new ArrayList<>();
+    private static final List<Book> libraryBooks;
+    private static final LibraryDao libraryDao = new LibraryDao();
+
+    static {
+        libraryBooks = libraryDao.readAllBooks();
+    }
 
     public void addBook(Book book) {
         if (libraryBooks.contains(book)) {
@@ -17,6 +20,7 @@ public class Library {
         }
 
         libraryBooks.add(book);
+        libraryDao.addBook(book);
     }
 
     public void deleteBook(String isbn) {
@@ -27,6 +31,7 @@ public class Library {
                         new BookNotFoundException("Book with such isbn is not found: %s".formatted(isbn)));
 
         libraryBooks.remove(bookToBeDeleted);
+        libraryDao.removeBook(bookToBeDeleted.getIsbn());
     }
 
     public void updateBook(String isbn, Book book) {
@@ -35,15 +40,18 @@ public class Library {
                 .ifPresentOrElse(b -> {
                     if (b.getTitle() != null || !b.getTitle().isEmpty()) {
                         b.setTitle(book.getTitle());
-                    } else if (b.getAuthor() != null || !b.getAuthor().isEmpty()) {
+                    } if (b.getAuthor() != null || !b.getAuthor().isEmpty()) {
                         b.setAuthor(book.getAuthor());
-                    } else if (b.getPublicationDate() != null || !b.getPublicationDate().isEmpty()) {
+                    } if (b.getPublicationDate() != null || !b.getPublicationDate().isEmpty()) {
                         b.setPublicationDate(book.getPublicationDate());
                     }
                 }, () -> {
                     throw new BookNotFoundException("Book with such ISBN is not found: %s".formatted("isbn"));
                 }
         );
+        Book updatedBook = libraryBooks.stream()
+                        .filter(sBook -> sBook.getIsbn().equals(isbn)).findAny().get();
+        libraryDao.updateBook(isbn, updatedBook);
     }
 
     public List<Book> findByAuthorName(String authorName) {
