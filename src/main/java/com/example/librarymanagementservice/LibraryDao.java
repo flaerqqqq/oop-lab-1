@@ -22,7 +22,7 @@ public class LibraryDao {
 
     public void addBook(Book book) {
         try (PrintStream printStream = new PrintStream(new FileOutputStream(filePath, true))) {
-            String csvString = covertBookToSCVString(book);
+            String csvString = convertBookToSCVString(book);
             printStream.println(csvString);
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -34,7 +34,7 @@ public class LibraryDao {
                 .filter(book -> !book.getIsbn().equals(isbn))
                 .toList();
         try (PrintStream printStream = new PrintStream(new FileOutputStream(filePath, false))) {
-           books.forEach(book -> printStream.println(covertBookToSCVString(book)));
+           books.forEach(book -> printStream.println(convertBookToSCVString(book)));
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -45,7 +45,7 @@ public class LibraryDao {
                 .map(sBook -> sBook.getIsbn().equals(isbn) ? book : sBook)
                 .toList();
         try (PrintStream printStream = new PrintStream(new FileOutputStream(filePath, false))) {
-            books.forEach(sBook -> printStream.println(covertBookToSCVString(sBook)));
+            books.forEach(sBook -> printStream.println(convertBookToSCVString(sBook)));
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -71,7 +71,7 @@ public class LibraryDao {
                 .build();
     }
 
-    private String covertBookToSCVString(Book book) {
+    private String convertBookToSCVString(Book book) {
         return String.join("\t",
                 List.of(book.getIsbn(), book.getTitle(), book.getAuthor(), book.getPublicationDate())
         );

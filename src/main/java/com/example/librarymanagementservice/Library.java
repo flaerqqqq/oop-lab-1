@@ -7,10 +7,10 @@ import java.util.List;
 
 public class Library {
 
-    private static final List<Book> libraryBooks;
-    private static final LibraryDao libraryDao = new LibraryDao();
+    private final List<Book> libraryBooks;
+    private final LibraryDao libraryDao = new LibraryDao();
 
-    static {
+    {
         libraryBooks = libraryDao.readAllBooks();
     }
 
